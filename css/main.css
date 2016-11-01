@@ -1,0 +1,103 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	background: #080c10;
+	color: white;
+	font-family: 'Raleway', sans-serif;
+}
+
+header {
+	background: #131c24;
+	padding: 2em;
+	overflow: hidden;
+	letter-spacing: 0.075em;
+}
+
+header h1 {
+	font-size: 4em;
+}
+
+#search input {
+	background: none;
+	border: none;
+	border-bottom: 1px solid white;
+	width: 50%;
+	min-width: 290px;
+	font-size: 1.1rem;
+	color: white;
+	padding: 5px;
+	transition: 200ms width;
+	text-overflow: ellipsis;
+	margin-top: 1em;
+}
+
+#search input:focus {
+	outline: 0;
+	width: 90%;
+}
+
+#playlist-table {
+	table-layout: fixed;
+	width: 90%;
+	margin: auto;
+}
+
+#playlist-table tr {
+	border-bottom: 1px solid #555;	
+}
+
+#playlist-table tbody tr:hover {
+	background: #131c24;
+	cursor: default;
+}
+
+#playlist-table tr:last-child {
+	border: none;
+}
+
+#playlist-table th {
+	text-align: left;
+	color: #999;
+}
+
+#playlist-table td {
+	max-width: 25%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#playlist-table td, #playlist-table th {
+	padding: 1em 0.1em 1em 0.3em;
+}
+
+table, th, td {
+	border-collapse: collapse;
+}
+
+
+
+@media screen and (min-width: 768px) {
+	header section {
+		float: left;
+		width: 50%;
+	}
+
+	#search {
+		padding: 2em;
+		text-align: right;
+	}
+
+	#search input {
+		margin-top: 0;
+	}
+
+	#playlist-table {
+		table-layout: fixed;
+		width: 50%;
+		margin: 2em;
+	}
+}
