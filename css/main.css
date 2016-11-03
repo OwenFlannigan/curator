@@ -74,10 +74,54 @@ header h1 {
 	padding: 1em 0.1em 1em 0.3em;
 }
 
+#playlist-table span {
+	padding-right: 1em;
+}
+
 table, th, td {
 	border-collapse: collapse;
 }
 
+#information, #information > div {
+	overflow: hidden;
+	/*width: 75$;*/
+}
+
+#information img {
+	width: 100%;
+	min-width: 140px;
+}
+
+#information > div:first-child {
+	width: 25%;
+}
+
+#data {
+	width: 75%;
+}
+
+#information #data, #information > div {
+	float: left;
+}
+
+#data {
+	/*padding-top: 2em;
+	padding-left: 2em;*/
+	padding: 2em;
+}
+
+#data li {
+	padding-top: 1em;
+}
+
+#data li {
+	display: inline-block;
+	padding-right: 1em;
+}
+
+ul {
+	padding: 0;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -97,7 +141,34 @@ table, th, td {
 
 	#playlist-table {
 		table-layout: fixed;
-		width: 50%;
 		margin: 2em;
+	}
+
+	#playlist, #information {
+		float: right;
+		width: 50%;
+	}
+
+	#information {
+		margin-top: 2em;
+	}
+
+	#information img, #information #data {
+		width: 85%;
+		float: none;
+		margin: auto;
+	}
+
+	#information #data, #information img {
+		display: block;
+	}
+
+	#information > div:first-child {
+		width: 100%;
+	}
+
+	#information > div {
+		overflow: hidden;
+		width: 100%;
 	}
 }

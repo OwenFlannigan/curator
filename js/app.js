@@ -16,10 +16,20 @@ searchForm.addEventListener('submit', function(event) {
 		// 	console.log(item.name + " by " + item.artists[0].name);
 		// });
 		showPlaylist(data.tracks.items);
+
+		// base curation off of song or album)
+		showCuratedSearch(data.tracks.items[0]);
 	});
 
 	return false; // for IE
 });
+
+// Displays cover and info of the album or song that the 
+// search was based on
+function showCuratedSearch(song) {
+	$('#album-cover').attr('src', song.album.images[0].url);
+	$('#data h3').text('curated based on ' + song.name + ' by ' + song.artists[0].name);
+}
 
 function showPlaylist(songs) {
 	var body = $('#playlist-table tbody');
@@ -31,21 +41,60 @@ function showPlaylist(songs) {
 
 		var nameElem = $('<td headers="songs">');
 		nameElem.text(song.name);
+		$(nameElem).prepend(playButton);
+
+		var playButton = $('<span>');
+		$(playButton).html('<i class="fa fa-play" aria-hidden="true"></i>');
+		$(nameElem).prepend($(playButton));
+
+		// Sample song on click
+
+		// NEED TO FIX PAUSE PLAY TOGGLE ICONS
+		$(playButton).click(function() {
+			$(this).children('i').toggleClass('fa-play');
+			$(this).children('i').toggleClass('fa-pause');
+			$('tbody').children('td').each(function(td) {
+				if(td.children('i').hasClass('fa-pause')) {
+					td.children('i').toggleClass('fa-pause');
+					td.children('i').toggleClass('fa-play');
+				}
+			});
+			sampleSong(song);
+		});
+
 		var artistElem = $('<td headers="artists">');
 		artistElem.text(song.artists.map(function(artist) {
 			return artist.name;
 		}).join(', '));
+
 		var albumElem = $('<td headers="album">');
 		albumElem.text(song.album.name);
-		var durationElem = $('<td headers="duration">');
-		durationElem.text(numeral(song.duration_ms/1000).format('00:00:00'));
+
+		// var durationElem = $('<td headers="duration">');
+		// durationElem.text(numeral(song.duration_ms/1000).format('00:00:00'));
 
 		row.append($(nameElem));
 		row.append($(artistElem));
 		row.append($(albumElem));
-		row.append($(durationElem));
+		// row.append($(durationElem));
 
 		body.append($(row));
 	});
+	
+}
+
+var audio = new Audio();
+
+function sampleSong(song) {
+	if(audio.src === song.preview_url) {
+		if(audio.paused)
+			audio.play();
+		else
+			audio.pause();
+	} else {
+		audio.pause();
+		audio = new Audio(song.preview_url);
+		audio.play();
+	}
 	
 }
