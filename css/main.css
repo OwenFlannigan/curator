@@ -84,7 +84,6 @@ table, th, td {
 
 #information, #information > div {
 	overflow: hidden;
-	/*width: 75$;*/
 }
 
 #information img {
@@ -105,18 +104,22 @@ table, th, td {
 }
 
 #data {
-	/*padding-top: 2em;
-	padding-left: 2em;*/
 	padding: 2em;
 }
 
 #data li {
 	padding-top: 1em;
-}
-
-#data li {
 	display: inline-block;
 	padding-right: 1em;
+}
+
+a {
+	text-decoration: none;
+	color: #999;
+}
+
+a:hover {
+	color: white;
 }
 
 ul {
@@ -142,15 +145,22 @@ ul {
 	#playlist-table {
 		table-layout: fixed;
 		margin: 2em;
+		width: 95%;
 	}
 
 	#playlist, #information {
 		float: right;
-		width: 50%;
+		/*width: 50%;*/
+	}
+
+	#playlist {
+		width: 60%;
+		overflow: scroll;
 	}
 
 	#information {
 		margin-top: 2em;
+		width: 40%;
 	}
 
 	#information img, #information #data {
@@ -170,5 +180,9 @@ ul {
 	#information > div {
 		overflow: hidden;
 		width: 100%;
+	}
+
+	#data {
+		padding-left: 0;
 	}
 }
