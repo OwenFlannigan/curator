@@ -76,6 +76,8 @@ header h1 {
 
 #playlist-table span {
 	padding-right: 1em;
+	padding-left: 1em;
+	cursor: pointer;
 }
 
 table, th, td {

@@ -47,6 +47,7 @@ function showPlaylist(songs) {
 		$(nameElem).prepend(playButton);
 
 		var playButton = $('<span>');
+		// $(playButton).css('cursor', 'pointer');
 		$(playButton).html('<i class="fa fa-play" aria-hidden="true"></i>');
 		$(nameElem).prepend($(playButton));
 
