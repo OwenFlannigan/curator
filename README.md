@@ -1,2 +1,0 @@
-# curator
-A music curator
