@@ -17,10 +17,17 @@ searchForm.addEventListener('submit', function (event) {
 		// data.tracks.items.forEach(function(item) {
 		// 	console.log(item.name + " by " + item.artists[0].name);
 		// });
-		showPlaylist(data.tracks.items);
+		fetch('/curate?seed_id=' + data.tracks.items[0].id).then(function (response) {
+			return response.json();
+		}).then(function (curatedData) {
+			console.log(curatedData);
+			showPlaylist(curatedData.tracks);
+			showCuratedSearch(data.tracks.items[0]);
+		});
+		// showPlaylist(data.tracks.items);
 
 		// base curation off of song or album)
-		showCuratedSearch(data.tracks.items[0]);
+		// showCuratedSearch(data.tracks.items[0]);
 
 	});
 
