@@ -5,7 +5,7 @@ var searchForm = document.querySelector('#search form');
 searchForm.addEventListener('submit', function (event) {
 	event.preventDefault();
 	$('.loader-container').fadeIn('fast');
-	adjustPlaylistHeight();
+	// adjustPlaylistHeight();
 	$(window).resize(adjustPlaylistHeight);
 
 	var input = $(searchForm).children('input').val();
@@ -24,7 +24,8 @@ searchForm.addEventListener('submit', function (event) {
 			console.log(curatedData);
 			showPlaylist(curatedData.tracks);
 			showCuratedSearch(data.tracks.items[0]);
-			$('.loader-container').fadeOut('fast');			
+			$('.loader-container').fadeOut('fast');
+			adjustPlaylistHeight();						
 			showContent();
 		});
 		// showPlaylist(data.tracks.items);
@@ -95,8 +96,9 @@ function showContent() {
 }
 
 function adjustPlaylistHeight() {
-	var height = $(window).height() - $('#content').offset().top;
+	var height = $(window).height() - $('header').height();
 	$('#playlist').height(height);
+	console.log('height', height);
 }
 
 var audio = new Audio();
