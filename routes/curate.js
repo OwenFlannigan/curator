@@ -7,7 +7,8 @@ var secret = 'c13c3a5aee31458e841316192545e5f8';
 
 router.get('/', function(req, response, next) {
     var authentication = new Buffer(clientID + ':' + secret).toString('base64');
-    var seeds = req.param('seed_id');
+    var seeds = req.query.seed_id;
+    console.log(seeds);
 
     if(!(seeds)) {
         response.send('Request is missing seed ID parameter');

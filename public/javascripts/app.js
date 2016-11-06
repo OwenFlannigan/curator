@@ -4,6 +4,7 @@ var searchForm = document.querySelector('#search form');
 
 searchForm.addEventListener('submit', function (event) {
 	event.preventDefault();
+	$('.loader-container').fadeIn('fast');
 	adjustPlaylistHeight();
 	$(window).resize(adjustPlaylistHeight);
 
@@ -23,6 +24,8 @@ searchForm.addEventListener('submit', function (event) {
 			console.log(curatedData);
 			showPlaylist(curatedData.tracks);
 			showCuratedSearch(data.tracks.items[0]);
+			$('.loader-container').fadeOut('fast');			
+			showContent();
 		});
 		// showPlaylist(data.tracks.items);
 
@@ -84,6 +87,11 @@ function showPlaylist(songs) {
 		body.append($(row));
 	});
 
+}
+
+function showContent() {
+	$('body').css('background-color', '#080c10');
+	$('#content').fadeIn(300);
 }
 
 function adjustPlaylistHeight() {
