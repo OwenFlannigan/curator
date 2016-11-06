@@ -47,7 +47,6 @@ function showPlaylist(songs) {
 
 	songs.forEach(function (song) {
 		var row = $('<tr>');
-		console.log(song);
 
 		var nameElem = $('<td headers="songs">');
 		nameElem.text(song.name);
