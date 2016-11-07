@@ -3,7 +3,7 @@ var request = require('request');
 var router = express.Router();
 var fs = require('fs');
 
-var authentication = fs.readFileSync('client_info.txt', 'ascii', (err, data) => {
+var authentication = fs.readFileSync('client_information.txt', 'ascii', (err, data) => {
     if(err) { throw err; }
     return data;
 });
