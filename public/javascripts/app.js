@@ -54,16 +54,14 @@ function showPlaylist(songs) {
 
 		var nameElem = $('<td headers="songs">');
 		nameElem.text(song.name);
-		$(nameElem).prepend(playButton);
 
 		var playButton = $('<span>');
 		// $(playButton).css('cursor', 'pointer');
-		$(playButton).html('<i class="fa fa-play" aria-hidden="true"></i>');
+		$(playButton).html('<i class="fa fa-play-circle" aria-hidden="true"></i>');
 		$(nameElem).prepend($(playButton));
 
 		// Sample song on click
 
-		// NEED TO FIX PAUSE PLAY TOGGLE ICONS
 		$(playButton).click(function () {
 			sampleSong(song);
 			toggleControlIcon(playButton);
@@ -96,7 +94,7 @@ function showContent() {
 }
 
 function adjustPlaylistHeight() {
-	var height = $(window).height() - $('header').height();
+	var height = $(window).height() - $('header').height() - 75;
 	$('#playlist').height(height);
 	console.log('height', height);
 }
@@ -123,15 +121,15 @@ function sampleSong(song) {
 
 function toggleControlIcon(playButton) {
 	audio.onplay = function () {
-		$(playButton).children('i').toggleClass('fa-pause');
-		$(playButton).children('i').toggleClass('fa-play');
+		$(playButton).children('i').toggleClass('fa-stop-circle');
+		$(playButton).children('i').toggleClass('fa-play-circle');
 	}
 	audio.onpause = function () {
-		$(playButton).children('i').toggleClass('fa-pause');
-		$(playButton).children('i').toggleClass('fa-play');
+		$(playButton).children('i').toggleClass('fa-stop-circle');
+		$(playButton).children('i').toggleClass('fa-play-circle');
 	}
 	audio.onended = function () {
-		$(playButton).children('i').toggleClass('fa-pause');
-		$(playButton).children('i').toggleClass('fa-play');
+		$(playButton).children('i').toggleClass('fa-stop-circle');
+		$(playButton).children('i').toggleClass('fa-play-circle');
 	}
 }

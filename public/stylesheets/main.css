@@ -68,6 +68,8 @@ header h1 {
 #playlist-table th {
 	text-align: left;
 	color: #999;
+	border-bottom: 1px solid white;
+	margin-bottom: 0.5em;
 }
 
 #playlist-table td {
@@ -78,13 +80,14 @@ header h1 {
 }
 
 #playlist-table td, #playlist-table th {
-	padding: 1em 0.1em 1em 0.3em;
+	padding: 0.75em 0.1em 0.75em 0.3em;
 }
 
-#playlist-table span {
-	padding-right: 1em;
-	padding-left: 1em;
+#playlist-table .fa {
+	padding-right: 0.5em;
 	cursor: pointer;
+	font-size: 1.8em;
+	vertical-align: middle;
 }
 
 table, th, td {
@@ -147,20 +150,20 @@ ul {
 	width: 150px;
 	height: 150px;
 	margin: -75px 0 0 -75px;
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    /* border: 16px solid #f3f3f3; /* Light grey */
+    /* border-top: 16px solid #3498db; /* Blue */
+	border: 16px solid white; /* Light grey */
+    border-top: 16px solid rgba(0, 0, 0, 0); /* Blue */
     border-radius: 50%;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
 }
 
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
 
 @media screen and (min-width: 768px) {
 	header section {
