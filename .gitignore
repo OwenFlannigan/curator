@@ -11,3 +11,11 @@ Thumbs.db
 # Client Information #
 ######################
 client_information.txt
+
+# Node Modules #
+################
+node_modules
+
+# VS Code Typings #
+###################
+typings.json
