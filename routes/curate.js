@@ -8,9 +8,10 @@ var authentication = fs.readFileSync('client_information.txt', 'ascii', (err, da
     if(err) { throw err; }
     return data;
 });
+authentication = new Buffer(authentication).toString('base64');
+
 
 router.get('/', function(req, response, next) {
-    authentication = new Buffer(authentication).toString('base64');
     var seeds = req.query.seed_id;
 
     if(!(seeds)) {
@@ -32,6 +33,8 @@ router.get('/', function(req, response, next) {
     };
 
     request.post(authOptions, function(err, res, body) {
+        console.log('error', err);
+        console.log('status', res.statusCode);
         if(!err && res.statusCode === 200) {
             var token = body.access_token;
 

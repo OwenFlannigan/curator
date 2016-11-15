@@ -2,6 +2,8 @@
 A music curator
 
 # Installation
+These instructions assume that you already have node installed on your system. If not, you can install the latest version from the NodeJS website.
+
 After navigating to the app direcory, use the following command to install the necessary node dependencies before running:
 
     npm install
