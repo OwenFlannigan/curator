@@ -10,7 +10,6 @@ var authentication = fs.readFileSync('client_information.txt', 'ascii', (err, da
 });
 authentication = new Buffer(authentication).toString('base64');
 
-
 router.get('/', function(req, response, next) {
     var seeds = req.query.seed_id;
 
@@ -33,8 +32,6 @@ router.get('/', function(req, response, next) {
     };
 
     request.post(authOptions, function(err, res, body) {
-        console.log('error', err);
-        console.log('status', res.statusCode);
         if(!err && res.statusCode === 200) {
             var token = body.access_token;
 

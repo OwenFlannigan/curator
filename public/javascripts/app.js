@@ -4,6 +4,7 @@ var searchForm = document.querySelector('#search form');
 
 searchForm.addEventListener('submit', function (event) {
 	event.preventDefault();
+	audio.pause();
 	$('.loader-container').fadeIn('fast');
 	// adjustPlaylistHeight();
 	$(window).resize(adjustPlaylistHeight);
@@ -42,7 +43,7 @@ searchForm.addEventListener('submit', function (event) {
 // search was based on
 function showCuratedSearch(song) {
 	$('#album-cover').attr('src', song.album.images[0].url);
-	$('#data h3').text('curated based on ' + song.name + ' by ' + song.artists[0].name);
+	$('#data h3').html('curated based on ' + '<a href="http://open.spotify.com/track/' + song.id + '">' + song.name + '</a> by <a href="http://open.spotify.com/artist/' + song.artists[0].id + '">' + song.artists[0].name + '</a>');
 }
 
 function showPlaylist(songs) {
@@ -52,8 +53,10 @@ function showPlaylist(songs) {
 	songs.forEach(function (song) {
 		var row = $('<tr>');
 
-		var nameElem = $('<td headers="songs">');
-		nameElem.text(song.name);
+		var nameElem = $('<td headers="songs" class="col-songs">');
+		var songLink = $('<a href="http://open.spotify.com/track/' + song.id + '">');
+		songLink.text(song.name);
+		nameElem.append($(songLink));
 
 		var playButton = $('<span>');
 		// $(playButton).css('cursor', 'pointer');
@@ -67,13 +70,24 @@ function showPlaylist(songs) {
 			toggleControlIcon(playButton);
 		});
 
-		var artistElem = $('<td headers="artists">');
-		artistElem.text(song.artists.map(function (artist) {
+		var artistElem = $('<td headers="artists" class="col-artists">');
+		var artistLink = $('<a href="http://open.spotify.com/artist/' + song.artists[0].id + '">');
+		var mobileArtist = $('<p class="mobile-artist">'); 
+		var artistList = (song.artists.map(function (artist) {
 			return artist.name;
 		}).join(', '));
+		artistLink.text(artistList);
+		mobileArtist.text(artistList);
+		artistElem.append($(artistLink));
 
-		var albumElem = $('<td headers="album">');
-		albumElem.text(song.album.name);
+		// Mobile view
+		nameElem.append($('<br class="mobile-artist"/>'));
+		nameElem.append($(mobileArtist));
+
+		var albumElem = $('<td headers="album" class="col-albums">');
+		var albumLink = $('<a href="http://open.spotify.com/album/' + song.album.id + '">');
+		albumLink.text(song.album.name);
+		albumElem.append($(albumLink));
 
 		// var durationElem = $('<td headers="duration">');
 		// durationElem.text(numeral(song.duration_ms/1000).format('00:00:00'));
@@ -96,7 +110,6 @@ function showContent() {
 function adjustPlaylistHeight() {
 	var height = $(window).height() - $('header').height() - 75;
 	$('#playlist').height(height);
-	console.log('height', height);
 }
 
 var audio = new Audio();
@@ -125,10 +138,6 @@ function toggleControlIcon(playButton) {
 		$(playButton).children('i').toggleClass('fa-play-circle');
 	}
 	audio.onpause = function () {
-		$(playButton).children('i').toggleClass('fa-stop-circle');
-		$(playButton).children('i').toggleClass('fa-play-circle');
-	}
-	audio.onended = function () {
 		$(playButton).children('i').toggleClass('fa-stop-circle');
 		$(playButton).children('i').toggleClass('fa-play-circle');
 	}

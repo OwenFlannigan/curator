@@ -11,6 +11,15 @@ body {
 	transition: 100ms background;
 }
 
+a {
+	text-decoration: none;
+	color: #999;
+}
+
+a:hover {
+	color: white;
+}
+
 header {
 	background: #131c24;
 	padding: 2em;
@@ -31,7 +40,7 @@ header h1 {
 	background: none;
 	border: none;
 	border-bottom: 1px solid white;
-	width: 50%;
+	width: 100%;
 	min-width: 290px;
 	font-size: 1.1rem;
 	color: white;
@@ -43,17 +52,20 @@ header h1 {
 
 #search input:focus {
 	outline: 0;
-	width: 90%;
 }
 
 #playlist-table {
 	table-layout: fixed;
-	width: 90%;
+	width: 100%;
 	margin: auto;
 }
 
 #playlist-table tr {
 	border-bottom: 1px solid #555;	
+}
+
+#playlist-table thead {
+	display: none;
 }
 
 #playlist-table tbody tr:hover {
@@ -85,8 +97,33 @@ header h1 {
 #playlist-table .fa {
 	padding-right: 0.5em;
 	cursor: pointer;
-	font-size: 1.8em;
+	font-size: 2.3em;
+	/*font-size: 1.8em;*/
 	vertical-align: middle;
+}
+
+#playlist-table a {
+	text-decoration: none;
+	color: white;
+}
+
+#playlist-table a:hover {
+	text-decoration: underline;
+}
+
+/* Hide artist and album on mobile */
+.col-albums, .col-artists {
+	display: none;
+}
+
+/* Artist link on mobile */
+.mobile-artist {
+	font-size: 0.7em;
+	color: #cdcdcd;
+}
+
+td > span {
+	float: left;
 }
 
 table, th, td {
@@ -99,7 +136,7 @@ table, th, td {
 
 #information img {
 	width: 100%;
-	min-width: 140px;
+	/*min-width: 140px;*/
 }
 
 #information > div:first-child {
@@ -122,15 +159,6 @@ table, th, td {
 	padding-top: 1em;
 	display: inline-block;
 	padding-right: 1em;
-}
-
-a {
-	text-decoration: none;
-	color: #999;
-}
-
-a:hover {
-	color: white;
 }
 
 ul {
@@ -177,12 +205,24 @@ ul {
 
 	#search input {
 		margin-top: 0;
+		width: 50%;
 	}
 
-	#playlist-table {
-		table-layout: fixed;
+	#search input:focus {
+		width: 90%;
+	}
+
+	#playlist-table {	
 		margin: 2em;
 		width: 95%;
+	}
+
+	#playlist-table thead {
+		display: table-header-group;
+	}
+
+	#playlist-table .fa {
+		font-size: 1.8em;		
 	}
 
 	#playlist, #information {
@@ -190,9 +230,21 @@ ul {
 		/*width: 50%;*/
 	}
 
+	td > span {
+		float: none;
+	}
+
 	#playlist {
 		width: 60%;
 		overflow: scroll;
+	}
+
+	.col-albums, .col-artists {
+		display: table-cell;
+	}
+
+	.mobile-artist {
+		display: none;
 	}
 
 	#information {
@@ -208,6 +260,14 @@ ul {
 
 	#information #data, #information img {
 		display: block;
+	}
+
+	#data h3 a {
+		color: white;
+	}
+
+	#data h3 a:hover {
+		text-decoration: underline;
 	}
 
 	#information > div:first-child {
