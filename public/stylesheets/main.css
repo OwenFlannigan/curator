@@ -31,6 +31,10 @@ header h1 {
 	font-size: 4em;
 }
 
+header h2 {
+	display: none;
+}
+
 /* Starting condition for content */
 #content {
 	display: none;
@@ -40,7 +44,7 @@ header h1 {
 	background: none;
 	border: none;
 	border-bottom: 1px solid white;
-	width: 100%;
+	width: 90%;
 	min-width: 290px;
 	font-size: 1.1rem;
 	color: white;
@@ -281,5 +285,11 @@ ul {
 
 	#data {
 		padding-left: 0;
+	}
+}
+
+@media screen and (max-width: 380px) {
+	#search form i {
+		display: none;
 	}
 }
