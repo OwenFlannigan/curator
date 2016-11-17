@@ -210,6 +210,10 @@ ul {
 		width: 50%;
 	}
 
+	header h2 {
+		display: block;
+	}
+
 	#search {
 		padding: 2em;
 		text-align: right;
