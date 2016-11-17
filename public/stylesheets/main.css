@@ -151,6 +151,14 @@ table, th, td {
 	float: left;
 }
 
+#data h3 a {
+	color: white;
+}
+
+#data h3 a:hover {
+	text-decoration: underline;
+}
+
 #data {
 	padding: 2em;
 }
@@ -260,14 +268,6 @@ ul {
 
 	#information #data, #information img {
 		display: block;
-	}
-
-	#data h3 a {
-		color: white;
-	}
-
-	#data h3 a:hover {
-		text-decoration: underline;
 	}
 
 	#information > div:first-child {
