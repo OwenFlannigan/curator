@@ -1,0 +1,238 @@
+body {
+	background: #080c10;
+	/*background: #131c24;*/
+	color: white;
+	/*font-family: 'Raleway', sans-serif;*/
+	transition: 100ms background;
+}
+
+h1, h2, h3, li {
+	font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+	line-height: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #999;
+}
+
+a:hover {
+  color: white;
+}
+
+/* Header Styling */
+
+header {
+	background: #131c24;
+	padding: 1em;
+	overflow: hidden;
+	letter-spacing: 0.075em;
+}
+
+header h1 {
+	font-size: 4.5rem;
+  font-weight: bold;
+  margin: 0;
+	letter-spacing: 0.04em;  
+}
+
+header h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  line-height: 1em;  
+}
+
+header input {
+	background: none;
+	border: none;
+	border-bottom: 1px solid white;
+	width: 90%;
+	/*min-width: 290px;*/
+	font-size: 1.3rem;
+	color: white;
+	padding: 5px;
+	transition: 200ms width;
+	text-overflow: ellipsis;
+}
+
+header input:focus {
+	outline: 0;
+}
+
+/*.search {
+  padding: 1em;
+}*/
+
+.searchIcon {
+  vertical-align: middle;
+}
+
+
+/* Information styling */
+
+#data {
+	margin-left: 1rem;
+}
+
+#data h3 {
+	margin-top: 0;
+}
+
+#data li {
+	display: inline-block;
+	padding-right: 1rem;
+  font-size: 1.2rem;
+}
+
+ul {
+	padding: 0;
+}
+
+
+/* Playlist styling */
+span.artistName {
+	color: #999;
+}
+
+.mdl-data-table {
+  margin: auto;
+	background: #080c10;
+	color: white;
+}
+
+.mdl-data-table tbody tr.is-selected {
+	background: #080c10;
+}
+
+.mdl-data-table tbody tr:hover {
+	background: #131c24;
+}
+
+.mdl-checkbox__box-outline {
+	border: 2px solid white;
+}
+
+.mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
+	background: #131c24;
+}
+
+.mdl-checkbox.is-checked .mdl-checkbox__box-outline {
+	background: white;
+	border: 2px solid #131c24;
+}
+
+.mdl-data-table td {
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.mdl-data-table * {
+	color: white;
+}
+
+tr td:nth-child(2), tr td:nth-child(3) {
+	padding-left: 0;
+}
+
+tr td:nth-child(2) {
+	padding-right: 0;	
+}
+
+/* General styling */
+
+.hidePhone {
+  display: none;
+}
+
+/*.content .mdl-cell {
+  padding: 1rem;
+}
+
+.content .mdl-cell:first-child {
+  padding-right: 0;
+}*/
+
+.mdl-data-table {
+  white-space: normal;
+  color: black;
+  /*background: #080c10;*/
+  font-size: 1rem;
+}
+
+img.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Error message */
+.content > p {
+	font-size: 2rem;
+	text-align: center;
+	margin: 3rem;
+	line-height: 3rem;
+	word-wrap: break-word;
+}
+
+.material-icons {
+	cursor: pointer;
+}
+
+/* Loader */
+.loader-container {
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.loader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 150px;
+	height: 150px;
+	margin: -75px 0 0 -75px;
+    /* border: 16px solid #f3f3f3; /* Light grey */
+    /* border-top: 16px solid #3498db; /* Blue */
+	border: 16px solid white; /* Light grey */
+    border-top: 16px solid rgba(0, 0, 0, 0); /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Non-mobile */
+@media screen and (min-width: 840px) {
+  .hidePhone {
+    display: block;
+  }
+
+	#data {
+		margin-left: 0;
+	}
+
+	#data h3 {
+		margin-top: 2rem;
+	}
+
+	.search {
+		padding: 1em;
+	}
+
+	header input {
+		margin-top: 1em;
+	}
+
+}
