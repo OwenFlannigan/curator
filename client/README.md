@@ -2,16 +2,7 @@
 A music curator
 
 # Installation
-These instructions assume that you already have node installed on your system. If not, you can install the latest version from the NodeJS website.
-
-After navigating to the app directory, use the following command to install the necessary node dependencies before running:
-
-    npm install
-
-After installing the requisite files, you will need to register an app with the Spotify Platform in order to receive your personalized client ID and client secret. Follow the below steps to incorporate those into the app's code.
-
-## Client Info
-Client authentication through Spotify is needed to use this curator. It is contained in the file specified in the curate.js route. The format is [client id]:[client secret], not including brackets. Please note the colon in between the two, and ensure that these are all on one line, and are the only thing in the client information file. There is an example file with old data in it for reference.
+Follow the instructions in the repository's root directory for installation.
 
 # How to use
 Simply type in a song, artist or album and let the app curate a list of recommended songs for you!
