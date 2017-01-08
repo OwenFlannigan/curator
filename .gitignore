@@ -12,6 +12,11 @@ Thumbs.db
 ######################
 client_information.txt
 
+# Client #
+##########
+client/build
+client/node_modules
+
 # Node Modules #
 ################
 node_modules

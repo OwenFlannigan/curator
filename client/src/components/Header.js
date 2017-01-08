@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
 import { Grid, Cell, Icon, Tooltip, Textfield } from 'react-mdl';
+import Cookie from 'react-cookie';
+import { Link, hashHistory } from 'react-router';
+
 
 class Header extends React.Component {
 
+    logout() {
+        Cookie.remove('access_token');
+        Cookie.remove('refresh_token');
+        Cookie.remove('user_id');
+        hashHistory.push('/login');
+    }
 
     render() {
+
+        // maybe consider putting a simple navigation here
+        // ie: 'recommendations | preferences | logout | owenflannigan'
+        var userControls = <Link onClick={() => { this.logout() } }>Logout</Link>;
+
+        if (this.props.user) {
+            var name = (this.props.user.display_name ? this.props.user.display_name : this.props.user.id);
+            userControls = <Link onClick={() => { this.logout() } }>Logout, {name}</Link>;
+        }
+
         return (
             <header>
                 <Grid>
@@ -13,6 +32,9 @@ class Header extends React.Component {
                         <h2 className="hidePhone">live everyday with something new</h2>
                     </Cell>
                     <Cell col={6} phone={12}>
+                        <section className="userControls">
+                            {userControls}
+                        </section>
                         <section className="search">
                             <Search searchCallback={this.props.searchCallback} />
                         </section>

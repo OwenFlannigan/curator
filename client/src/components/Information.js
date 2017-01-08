@@ -19,7 +19,7 @@ class Information extends React.Component {
                         <div id="data">
                             <h3>{'curated based on ' + song + ' by ' + artist}</h3>
                             <ul>
-                                <li><a href="">save playlist</a></li>
+                                <li><a onClick={this.props.saveCallback}>save playlist</a></li>
                                 <li><a href="">share</a></li>
                             </ul>
                         </div>

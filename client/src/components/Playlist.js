@@ -6,6 +6,13 @@ class Playlist extends React.Component {
         super(props);
 
         this.state = { audio: new Audio() };
+        this.storeSelections = this.storeSelections.bind(this);
+    }
+
+    storeSelections(tracks) {
+        // console.log('storing:', tracks);
+        // this.props.storeCallback(tracks);
+        
     }
 
     togglePlayback(track) {
@@ -53,6 +60,7 @@ class Playlist extends React.Component {
             </div>;
 
             return {
+                id: track.id,
                 sample: sample,
                 songInfo: song,
                 songName: track.name,
@@ -65,9 +73,11 @@ class Playlist extends React.Component {
             <Grid noSpacing>
 
                 {/* Phone View */}
-                <Cell col={12} hideDesktop>
+                <Cell col={12} hideDesktop hideTablet>
                     <DataTable
                         selectable
+                        onSelectionChanged={this.storeSelections}     
+                        rowKeyColumn="id"                                           
                         rows={trackRows}>
 
                         <TableHeader name="sample" tooltip="Song album"> </TableHeader>
@@ -76,9 +86,11 @@ class Playlist extends React.Component {
                 </Cell>
 
                 {/* Tablet/Desktop View */}
-                <Cell col={12} hidePhone hideTablet>
+                <Cell col={12} hidePhone>
                     <DataTable
                         selectable
+                        onSelectionChanged={this.storeSelections}
+                        rowKeyColumn="id"
                         rows={trackRows}>
 
                         <TableHeader name="sample" tooltip="Song album"> </TableHeader>

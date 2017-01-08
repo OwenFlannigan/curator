@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 // var users = require('./routes/users');
 var curate = require('./routes/curate');
-// var login = require('./routes/login');
+var login = require('./routes/login');
 
 var app = express();
 
@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', index);
 // app.use('/users', users);
 app.use('/curate', curate);
-// app.use('/login', login);
+app.use('/login', login);
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
