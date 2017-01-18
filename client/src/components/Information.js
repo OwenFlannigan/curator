@@ -44,8 +44,8 @@ class Information extends React.Component {
 
         if (this.state.user) {
             var playlistControls = <ul>
-                <li><a onClick={() => { this.props.dialogCallback('Save Playlist', 'Save this playlist to Spotify?', 'Save', this.props.saveCallback) } }>save playlist</a></li>
-                <li><a onClick={() => { this.props.dialogCallback('Share Playlist', 'Send this playlist to a friend?', 'Share', this.props.shareCallback) } }>share</a></li>
+                <li><a onClick={() => { this.props.dialogCallback('Save Playlist', 'Save this playlist to Spotify?', 'Save', 'Playlist Name', this.props.saveCallback) } }>save playlist</a></li>
+                <li><a onClick={() => { this.props.dialogCallback('Share Playlist', 'Send this playlist to a friend?', 'Share', 'Friend\'s Username', this.props.shareCallback) } }>share</a></li>
             </ul>
         }
 

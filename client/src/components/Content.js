@@ -12,7 +12,7 @@ import { Search } from './Header';
 class Content extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loading: true, isSnackbarActive: false, stored: [] };
+        this.state = { loading: true, isSnackbarActive: false, stored: [], dialogLabel: '...' };
 
         this.fetchData = this.fetchData.bind(this);
         this.loadData = this.loadData.bind(this);
@@ -180,12 +180,13 @@ class Content extends React.Component {
         hashHistory.push('search/' + query);
     }
 
-    handleOpenDialog(title, text, action, callback) {
+    handleOpenDialog(title, text, action, label, callback) {
         this.setState({
             openDialog: true,
             dialogTitle: title,
             dialogText: text,
             dialogAction: action,
+            dialogLabel: label,
             dialogActionCallback: callback
         });
     }
@@ -250,7 +251,7 @@ class Content extends React.Component {
                     <DialogContent>
                         <Textfield
                             onChange={(e) => { this.handleDialogChange(e) } }
-                            label="Playlist Title"
+                            label={this.state.dialogLabel}
                             />
                         <p>{this.state.dialogText}</p>
                     </DialogContent>
