@@ -57,6 +57,7 @@ class Content extends React.Component {
     }
 
     loadData() {
+        this.setState({ loading: true });
         Cookie.save('content_searched', true);
         // If there is a search query
         if (this.props.params.query) {
@@ -144,7 +145,7 @@ class Content extends React.Component {
     }
 
     savePlaylist() {
-        var session_id = DataController.createPlaylist(this.state.user.id, this.state.track.length > 1 ? { name: 'your top tracks'} : this.state.track, this.state.recommendations, this.state.dialogInput);
+        var session_id = DataController.createPlaylist(this.state.user.id, this.state.track.length > 1 ? { name: 'your top tracks' } : this.state.track, this.state.recommendations, this.state.dialogInput);
         this.handleCloseDialog();
         session_id.then((data) => {
             var text = data.snapshot_id ? 'Playlist saved.' : 'Error: ' + data.error_description;
