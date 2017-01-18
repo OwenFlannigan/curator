@@ -29,6 +29,7 @@ var controller = {
 
     createPlaylist(userId, curatedTrack, tracks, title) {
         var playlistName = title ? title : 'Curated from ' + curatedTrack.name + ' on ' + moment().format('lll');
+        console.log(playlistName);
 
         var createOptions = {
             method: 'POST',
