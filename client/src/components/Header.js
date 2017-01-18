@@ -7,21 +7,29 @@ import { Link, hashHistory } from 'react-router';
 class Header extends React.Component {
 
     logout() {
-        Cookie.remove('access_token');
-        Cookie.remove('refresh_token');
-        Cookie.remove('user_id');
-        hashHistory.push('/login');
+        this.props.logoutCallback();
     }
 
     render() {
 
         // maybe consider putting a simple navigation here
         // ie: 'recommendations | preferences | logout | owenflannigan'
-        var userControls = <Link onClick={() => { this.logout() } }>Logout</Link>;
+        var userControls = <a href="http://localhost:3001/login">Login</a>;//<Link to="/login">Login</Link>;
 
         if (this.props.user) {
             var name = (this.props.user.display_name ? this.props.user.display_name : this.props.user.id);
-            userControls = <Link onClick={() => { this.logout() } }>Logout, {name}</Link>;
+            userControls =
+                <div>
+                    <Link onClick={() => { this.logout() } }>logout</Link>
+                    <Link to="/">recommendations</Link>
+                    <Tooltip label="Hi there :)" position="bottom">
+                        <Link>{name}</Link>
+                    </Tooltip>
+                </div>;
+        }
+
+        if (Cookie.load('content_searched')) {
+            var search = <Search searchCallback={this.props.searchCallback} />;
         }
 
         return (
@@ -36,7 +44,7 @@ class Header extends React.Component {
                             {userControls}
                         </section>
                         <section className="search">
-                            <Search searchCallback={this.props.searchCallback} />
+                            {search}
                         </section>
                     </Cell>
                 </Grid>
@@ -90,4 +98,5 @@ class Search extends React.Component {
     }
 }
 
+export { Search };
 export default Header;

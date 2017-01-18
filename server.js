@@ -19,6 +19,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// FOR PRODUCTION USE, uncomment the below code, and comment above
+// "app.use..." line.
+// app.use(express.static('./build'));
+
+// app.get('/#/*', function (req, res) {
+//   res.sendFile(path.join(__dirname, './build', 'index.html'));
+// });
 
 // app.use('/', index);
 // app.use('/users', users);

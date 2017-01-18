@@ -1,6 +1,6 @@
 body {
-	background: #080c10;
-	/*background: #131c24;*/
+	/*background: #080c10;*/
+	background: #131c24;
 	color: white;
 	/*font-family: 'Raleway', sans-serif;*/
 	transition: 100ms background;
@@ -87,6 +87,7 @@ header input:focus {
 	display: inline-block;
 	padding-right: 1rem;
   font-size: 1.2rem;
+	cursor: pointer;
 }
 
 ul {
@@ -143,10 +144,65 @@ tr td:nth-child(2) {
 	padding-right: 0;	
 }
 
+/* Login styling */
+
+.loginForm {
+	border-bottom: 1px solid white;
+	padding-bottom: 3rem;
+}
+
+.loginForm .mdl-textfield {
+	width: 100%;
+}
+
+.loginForm label {
+	color: white;
+}
+
+.loginForm button {
+	margin-bottom: 1rem;
+}
+
+		/* disabled button */
+.mdl-button--colored[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled {
+	color: white;
+	background: #131c24;
+	cursor: not-allowed !important;	
+}
+
+		/* enabled button */
+.mdl-button--raised.mdl-button--colored {
+	color: white;
+	background: #131c24;
+}
+
+.mdl-button--raised.mdl-button--colored:hover {
+	color: #131c24;
+	background: white;
+}
+
+.mdl-textfield__input {
+	border-bottom: 1px solid white;
+}
+
+
 /* General styling */
+.darkBackground {
+	background: #080c10;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+}
 
 .hidePhone {
   display: none;
+}
+
+a.disabled:hover {
+	cursor: not-allowed;
+	color: #999;
 }
 
 .userControls {
@@ -158,6 +214,16 @@ tr td:nth-child(2) {
 
 .userControls a {
 	cursor: pointer;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-right: 1px solid white;
+}
+
+.userControls a:last-child, .userControls > div > div > a {
+	cursor: pointer;
+	padding-left: 1em;
+	padding-right: 0;
+	border-right: none;
 }
 
 /*.content .mdl-cell {
@@ -178,6 +244,45 @@ tr td:nth-child(2) {
 img.responsive-img {
   max-width: 100%;
   height: auto;
+}
+
+/* Search on initial state (when not logged in, on home, before search) */
+.contentSearch {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	margin: auto;
+	/*padding-top: 5rem;*/
+	text-align: center;
+}
+
+.contentSearchCell {
+	margin: auto !important;
+}
+
+.contentSearch input {
+	background: none;
+	border: none;
+	border-bottom: 1px solid white;
+	width: 90%;
+	/*min-width: 290px;*/
+	font-size: 1.3rem;
+	color: white;
+	padding: 5px;
+	transition: 200ms width;
+	text-overflow: ellipsis;
+}
+
+.contentSearch input:focus {
+	outline: 0;
+}
+
+/*.search {
+  padding: 1em;
+}*/
+
+.searchIcon {
+  vertical-align: middle;
 }
 
 /* Error message */
@@ -204,7 +309,7 @@ img.responsive-img {
 .loader {
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 25%;
 	z-index: 1;
 	width: 150px;
 	height: 150px;
@@ -262,6 +367,12 @@ img.responsive-img {
 
 	header input {
 		margin-top: 1em;
+	}
+
+	.loginForm {
+		border-right: 1px solid white;
+		border-bottom: none;
+		padding-bottom: 0;
 	}
 
 }

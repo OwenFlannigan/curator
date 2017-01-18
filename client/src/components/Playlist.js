@@ -10,9 +10,11 @@ class Playlist extends React.Component {
     }
 
     storeSelections(tracks) {
-        // console.log('storing:', tracks);
-        // this.props.storeCallback(tracks);
-        
+        // Without this structure, react-mdl's onSelectionChanged will cause
+        // an infinite loop when a parent updates state.
+        if (this.props.stored !== tracks) {
+            this.props.storeCallback(tracks);
+        }
     }
 
     togglePlayback(track) {
@@ -76,8 +78,8 @@ class Playlist extends React.Component {
                 <Cell col={12} hideDesktop hideTablet>
                     <DataTable
                         selectable
-                        onSelectionChanged={this.storeSelections}     
-                        rowKeyColumn="id"                                           
+                        onSelectionChanged={this.storeSelections}
+                        rowKeyColumn="id"
                         rows={trackRows}>
 
                         <TableHeader name="sample" tooltip="Song album"> </TableHeader>
